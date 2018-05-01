@@ -1,0 +1,21 @@
+import numpy
+from numpy.fft import fft, ifft
+from matplotlib import pyplot as plt
+
+def shift_array (x,n=0):
+   vector=0*x
+   vector[n]=1
+   xft=fft(x)
+   vectorft=fft(vector)
+   return numpy.real(ifft(vectorft*xft))
+   
+if __name__=='__main__':
+   x=numpy.arange(-20,20,0.1)
+   sigma=2
+   y=numpy.exp(-0.5*x**2/sigma**2
+   yshift=shift_array(y,y.size/2)
+   
+   plt.plot(x,y)
+   plt.plot(x,yshift,'r')
+   plt.savefig('shift plot')
+   plt.show()
