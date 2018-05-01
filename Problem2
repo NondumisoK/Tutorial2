@@ -1,0 +1,20 @@
+import numpy
+from numpy.fft import fft,ifft
+from matplotlib import plot as plt
+
+def corr(x,y):
+   assert(x.size==y.size)
+   xft=fft(x)
+   yft=fft(y)
+   yftconj=numpy.conj(yft)
+   return numpy.real(ifft(xft*yftconj))
+   
+if __name__=='__main__':
+   x=numpy.arange(-20,20,0.1)
+   sigma=2
+   y=numpy.exp(-0.5*x**2/sigma**2)
+   ycorr=corr(y,y)
+   plt.plot(x,ycorr)
+   plt.savefig('Correlation fn of Gaussian')
+   plt.show()
+   
