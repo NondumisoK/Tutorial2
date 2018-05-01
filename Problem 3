@@ -1,0 +1,13 @@
+if __name__=='__main__':
+   x=numpy.arange(-20,20,0.1)
+   sigma=2
+   y=numpy.exp(-0.5*x**2/sigma**2)
+   ycorr=corr(y,y)
+   yshift=shift_array(y,y.size/4)
+   yshiftcorr=corr(yshift,yshift)
+   meanerror=numpy.mean(numpy.abs(ycorr-yshift))
+   print 'mean difference between 2 Gaussian correlation functions is' + repr(meanerror)
+   plt.plot(x,ycorr)
+   plt.plot(x,yshiftcorr)
+   plt.savefig('Correlation functions of Gaussian')
+   plt.show()
