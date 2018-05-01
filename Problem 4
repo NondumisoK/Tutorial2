@@ -1,0 +1,15 @@
+import numpy
+from numpy.fft import fft,ifff
+from matplotlib import pyplot as plt
+
+def conv_nowrap(x,y):
+   assert (x.size==y.size)
+   xx= numpy.zeros(2*x.size)
+   xx[0:x.size]=x
+   yy=numpy.zeros(2*size.y)
+   yy[0:y.size]=y
+   xxft=fft(xx)
+   yyft=fft(yy)
+   vector=numpy.real(ifft(xxft*yyft))
+   return vector[0:x.size]
+   
