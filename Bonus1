@@ -23,3 +23,8 @@ aft=fft_3(mya)
 bft=fft_3(myb)*twid1
 cft=fft_3(myc)*twid2
 
+ft1=aft+bft+cft
+ft2=aft+bft*f1+cft*f2
+ft3=aft+bft*f1b+cft*f2b
+return concatenate((ft1,ft2,ft3))
+
