@@ -1,0 +1,25 @@
+import numpy
+from numpy import cocatenate,exp,pi,arange,complex
+def fft_3(vec):
+   n=vec.size
+   if n==1:
+   return vec
+   
+mya=vec[0::3]
+myb=vec[1::3]
+myc=vec[2::3]
+j=complex(0,1)
+nn=n/3
+
+twid1=exp(-2*pi*j*arange(0,nn)/n)
+twid2=exp(-4*pi*j*arange(0,nn)/n)
+
+ft1=exp(-2*pi*j/3)
+ft2=exp(-4*pi*j/3)
+f1b=f2
+f2b=f1
+
+aft=fft_3(mya)
+bft=fft_3(myb)*twid1
+cft=fft_3(myc)*twid2
+
